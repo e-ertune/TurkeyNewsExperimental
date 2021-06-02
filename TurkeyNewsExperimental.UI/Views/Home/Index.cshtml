@@ -1,0 +1,63 @@
+﻿<meta charset="utf-8" />
+<style>
+    img {
+        max-width: 500px;
+    }
+
+    table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table td, table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover {
+        background-color: #ddd;
+    }
+
+    table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+
+<table style="border:1px solid black;">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.list)
+        {
+            <tr>
+                <td>
+                    <img src="@item.UrlToImage" />
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    @item.Description <a href="@item.Url">Devamı için tıklayınız.</a>
+                </td>
+                <td>
+                    @item.PublishedAt
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
